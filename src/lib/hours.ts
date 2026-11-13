@@ -3,7 +3,9 @@ import type { ClientConfig } from "../schema";
 type Hours = ClientConfig["hours"];
 type HoursEntry = Hours[number];
 
-const DAY_ORDER = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"] as const;
+// Exported: JS Date.getDay() index -> schema day enum. Reuse this for any
+// "what day is it" mapping instead of re-deriving the Sunday-is-0 math.
+export const DAY_ORDER = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"] as const;
 
 function toMinutes(t: string): number {
   const [h, m] = t.split(":").map(Number);

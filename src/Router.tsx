@@ -5,6 +5,13 @@ import type { ClientConfig } from "./schema";
 import { Header } from "./sections/Header";
 import { Hero } from "./sections/Hero";
 import { QuickInfoBar } from "./sections/QuickInfoBar";
+import { Offerings } from "./sections/Offerings";
+import { About } from "./sections/About";
+import { Reviews } from "./sections/Reviews";
+import { Gallery } from "./sections/Gallery";
+import { HoursLocation } from "./sections/HoursLocation";
+import { FinalCTA } from "./sections/FinalCTA";
+import { Footer } from "./sections/Footer";
 import { StickyMobileCTA } from "./components/StickyMobileCTA";
 
 // Strip leading/trailing slashes to get the slug. "" means root (owner listing page).
@@ -77,12 +84,18 @@ function OwnerListing({ clients }: { clients: Map<string, ClientConfig> }) {
 }
 
 function ClientPage({ config }: { config: ClientConfig }) {
-  // Remaining sections (quick info, offerings, about, reviews, etc.) come in later stages.
   return (
     <div>
       <Header config={config} />
       <Hero config={config} />
       <QuickInfoBar config={config} />
+      <Offerings config={config} />
+      <About config={config} />
+      <Reviews config={config} />
+      <Gallery config={config} />
+      <HoursLocation config={config} />
+      <FinalCTA config={config} />
+      <Footer config={config} />
       <StickyMobileCTA config={config} />
     </div>
   );

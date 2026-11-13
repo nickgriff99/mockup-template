@@ -35,6 +35,24 @@
   --text-fluid-h1: clamp(2rem, 1.5rem + 2vw, 3.5rem);
 }
 
+/*
+ * Hover only fires on devices that actually support :hover (mouse/trackpad),
+ * never sticks on touch. Every hover-styled element below uses hover-hover:*
+ * instead of hover:*.
+ */
+@custom-variant hover-hover (@media (hover: hover));
+
+/*
+ * Shared motion convention for Button/Card (and later GSAP stage): transform/
+ * opacity/color only, one duration + easing everywhere. Apply via
+ * `transition-brand` instead of ad-hoc `transition-*` classes.
+ */
+@utility transition-brand {
+  transition-property: transform, opacity, color, background-color, border-color;
+  transition-duration: 250ms;
+  transition-timing-function: ease-out;
+}
+
 :root {
   --text: #6b6375;
   --text-h: #08060d;

@@ -2,6 +2,10 @@ import { useEffect, useState } from "react";
 import { loadClientRegistry, isZodError } from "./clients";
 import type { ClientLoadError, ClientRegistry } from "./clients";
 import type { ClientConfig } from "./schema";
+import { Header } from "./sections/Header";
+import { Hero } from "./sections/Hero";
+import { QuickInfoBar } from "./sections/QuickInfoBar";
+import { StickyMobileCTA } from "./components/StickyMobileCTA";
 
 // Strip leading/trailing slashes to get the slug. "" means root (owner listing page).
 export function getSlugFromPathname(pathname: string): string {
@@ -73,11 +77,13 @@ function OwnerListing({ clients }: { clients: Map<string, ClientConfig> }) {
 }
 
 function ClientPage({ config }: { config: ClientConfig }) {
-  // Section components come in a later stage; this just proves routing + data wiring.
+  // Remaining sections (quick info, offerings, about, reviews, etc.) come in later stages.
   return (
     <div>
-      <h1>{config.name}</h1>
-      <p>{config.tagline}</p>
+      <Header config={config} />
+      <Hero config={config} />
+      <QuickInfoBar config={config} />
+      <StickyMobileCTA config={config} />
     </div>
   );
 }

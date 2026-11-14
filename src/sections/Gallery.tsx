@@ -1,12 +1,14 @@
 import { SectionWrapper } from "../components/SectionWrapper";
+import { useReveal } from "../hooks/useReveal";
 import type { ClientConfig } from "../schema";
 
 // Renders nothing if there's no gallery — no placeholder/empty state.
 export function Gallery({ config }: { config: ClientConfig }) {
+  const ref = useReveal<HTMLElement>();
   if (!config.gallery || config.gallery.length === 0) return null;
 
   return (
-    <SectionWrapper>
+    <SectionWrapper ref={ref}>
       <h2 className="mb-6 text-2xl font-bold text-brand-text">Gallery</h2>
       <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-3 md:overflow-visible">
         {config.gallery.map((image, i) => (

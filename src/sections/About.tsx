@@ -1,9 +1,11 @@
 import { SectionWrapper } from "../components/SectionWrapper";
+import { useReveal } from "../hooks/useReveal";
 import type { ClientConfig } from "../schema";
 
 export function About({ config }: { config: ClientConfig }) {
+  const ref = useReveal<HTMLElement>();
   return (
-    <SectionWrapper>
+    <SectionWrapper ref={ref}>
       <div className="flex flex-col gap-6 md:flex-row md:items-center md:gap-10">
         <p className="text-brand-text/80 md:flex-1 md:text-lg">
           {config.about}

@@ -1,15 +1,17 @@
 import { SectionWrapper } from "../components/SectionWrapper";
+import { useReveal } from "../hooks/useReveal";
 import { getOpenStatusLabel, getTodayHours } from "../lib/hours";
 import type { ClientConfig } from "../schema";
 
 export function QuickInfoBar({ config }: { config: ClientConfig }) {
+  const ref = useReveal<HTMLElement>();
   const isOpen = getOpenStatusLabel(config.hours) === "Open now";
   const today = getTodayHours(config.hours);
   const hoursText =
     today.open && today.close ? `${today.open}–${today.close}` : "Closed today";
 
   return (
-    <SectionWrapper className="border-b border-brand-text/10">
+    <SectionWrapper ref={ref} className="border-b border-brand-text/10">
       <div className="flex flex-col gap-3 text-base md:flex-row md:flex-wrap md:items-center md:justify-between">
         <div className="flex items-center gap-2">
           <span

@@ -11,7 +11,7 @@ export function Card({ children, className = "" }: CardProps) {
     <div
       className={
         "transition-brand rounded-xl bg-brand-background p-6 shadow-md " +
-        "hover-hover:-translate-y-1 hover-hover:shadow-lg " +
+        "hover-hover:-translate-y-1 hover-hover:shadow-lg motion-reduce:!transform-none " +
         className
       }
     >

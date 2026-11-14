@@ -1,12 +1,14 @@
 import { Card } from "../components/Card";
 import { SectionWrapper } from "../components/SectionWrapper";
+import { useReveal } from "../hooks/useReveal";
 import type { ClientConfig } from "../schema";
 
 export function Offerings({ config }: { config: ClientConfig }) {
+  const ref = useReveal<HTMLElement>();
   if (!config.offerings || config.offerings.length === 0) return null;
 
   return (
-    <SectionWrapper>
+    <SectionWrapper ref={ref}>
       <h2 className="text-fluid-h2 font-bold text-brand-text">
         Services & Pricing
       </h2>

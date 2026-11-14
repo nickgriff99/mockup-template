@@ -1,5 +1,6 @@
 import { Button } from "../components/Button";
 import { SectionWrapper } from "../components/SectionWrapper";
+import { useReveal } from "../hooks/useReveal";
 import { DAY_ORDER } from "../lib/hours";
 import type { ClientConfig } from "../schema";
 
@@ -18,10 +19,11 @@ const DAY_LABEL: Record<(typeof DAY_ORDER)[number], string> = {
 const DISPLAY_ORDER = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"] as const;
 
 export function HoursLocation({ config }: { config: ClientConfig }) {
+  const ref = useReveal<HTMLElement>();
   const todayKey = DAY_ORDER[new Date().getDay()];
 
   return (
-    <SectionWrapper>
+    <SectionWrapper ref={ref}>
       <h2 className="mb-6 text-2xl font-bold text-brand-text">Hours & location</h2>
       <div className="flex flex-col gap-8 md:flex-row md:justify-between">
         <table className="w-full max-w-sm text-base">

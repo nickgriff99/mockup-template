@@ -1,5 +1,6 @@
 import { Card } from "../components/Card";
 import { SectionWrapper } from "../components/SectionWrapper";
+import { useReveal } from "../hooks/useReveal";
 import type { ClientConfig } from "../schema";
 
 function Stars({ rating }: { rating: number }) {
@@ -16,10 +17,11 @@ function Stars({ rating }: { rating: number }) {
 
 // Renders nothing if there are no reviews — no placeholder/empty state.
 export function Reviews({ config }: { config: ClientConfig }) {
+  const ref = useReveal<HTMLElement>();
   if (config.reviews.length === 0) return null;
 
   return (
-    <SectionWrapper>
+    <SectionWrapper ref={ref}>
       <h2 className="mb-6 text-2xl font-bold text-brand-text">What people say</h2>
       <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-3 md:overflow-visible">
         {config.reviews.map((review, i) => (

@@ -28,13 +28,13 @@ export function QuickInfoBar({ config }: { config: ClientConfig }) {
         </div>
         <a
           href={config.mapsUrl}
-          className="transition-brand inline-flex min-h-11 items-center text-brand-primary hover-hover:underline"
+          className="transition-brand inline-flex min-h-11 items-center text-brand-primary hover-hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
         >
           {config.address}
         </a>
         <a
           href={`tel:${config.phone}`}
-          className="transition-brand inline-flex min-h-11 items-center text-brand-primary hover-hover:underline"
+          className="transition-brand inline-flex min-h-11 items-center text-brand-primary hover-hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
         >
           {config.phone}
         </a>

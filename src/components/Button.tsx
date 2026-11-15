@@ -20,7 +20,8 @@ export type ButtonProps = ButtonAsAnchor | ButtonAsButton;
 // GSAP-driven motion consistent across the site.
 const base =
   "transition-brand inline-flex min-h-11 min-w-11 items-center justify-center " +
-  "rounded-lg px-5 text-base font-medium active:scale-95 motion-reduce:active:!transform-none";
+  "rounded-lg px-5 text-base font-medium active:scale-95 motion-reduce:active:!transform-none " +
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2";
 
 const variants: Record<ButtonVariant, string> = {
   primary: "bg-brand-primary text-white hover-hover:brightness-110",

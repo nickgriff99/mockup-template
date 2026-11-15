@@ -24,7 +24,7 @@ export function Footer({ config }: { config: ClientConfig }) {
             <a
               key={key}
               href={url}
-              className="transition-brand text-brand-text/80 hover-hover:text-brand-primary"
+              className="transition-brand text-brand-text/80 hover-hover:text-brand-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
             >
               {SOCIAL_LABELS[key]}
             </a>

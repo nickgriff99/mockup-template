@@ -35,6 +35,11 @@
 
   /* Fluid heading stub — mechanism only, not wired into any component yet. */
   --text-fluid-h1: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+  /* h2 scale: floors at 1.5rem (matches sibling sections' fixed text-2xl on
+     mobile), grows past it on wider viewports. Was referenced by Offerings/
+     FinalCTA with no token defined — those headings silently fell back to
+     unstyled (Preflight-reset) 16px text. */
+  --text-fluid-h2: clamp(1.5rem, 1.25rem + 1vw, 2.25rem);
 }
 
 /*

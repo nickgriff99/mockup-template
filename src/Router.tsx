@@ -115,7 +115,9 @@ function ClientPage({ slug, config }: { slug: string; config: ClientConfig }) {
   });
 
   return (
-    <div style={buildThemeStyle(config)}>
+    <div style={buildThemeStyle(config)} className="pb-20 md:pb-0">
+      {/* pb-20 reserves space for StickyMobileCTA (fixed, mobile-only) so it
+          doesn't overlap Footer content once it appears past the hero. */}
       <Header config={config} />
       <main>
         <Hero config={config} />
